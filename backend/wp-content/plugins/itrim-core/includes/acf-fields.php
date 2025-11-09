@@ -63,6 +63,12 @@ acf_add_local_field_group(array(
                     'display_format' => 'd/m/Y',
                     'return_format' => 'Y-m-d',
                 ),
+                array(
+                    'key' => 'field_company_logo',
+                    'label' => 'Logo de l\'entreprise',
+                    'name' => 'logo_entreprise',
+                    'type' => 'image',
+                ),
             ),
         ),
         array(
