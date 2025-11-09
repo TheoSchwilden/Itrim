@@ -1,0 +1,25 @@
+# Node
+node_modules/
+frontend/.nuxt/
+frontend/.output/
+
+# Composer / PHP
+vendor/
+wp-content/uploads/
+
+
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Env
+.env
+*.sql
+*.log
+
+# Misc
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
