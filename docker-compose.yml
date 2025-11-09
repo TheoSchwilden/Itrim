@@ -28,10 +28,9 @@ services:
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
-      PHP_UPLOAD_MAX_FILESIZE: 64M
-      PHP_POST_MAX_SIZE: 64M
     volumes:
       - ./backend/wp-content:/var/www/html/wp-content
+      - ./php.ini:/usr/local/etc/php/conf.d/custom.ini
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
