@@ -25,6 +25,42 @@ add_action('rest_api_init', function() {
     ));
 });
 
+// Endpoint pour récuperer une offre d'emploi par son id
+add_action('rest_api_init', function() {
+    register_rest_route('itrim/v1', '/job-offer/(?P<id>\d+)', array(
+        'methods' => 'GET',
+        'callback' => 'itrim_get_job_offer_by_id',
+        'permission_callback' => '__return_true', // à sécuriser en prod
+    ));
+});
+
+// Callback pour récuperer une offre d'emploi par son id
+function itrim_get_job_offer_by_id($data) {
+    $post_id = intval($data['id']);
+    $post = get_post($post_id);
+
+    if (!$post || $post->post_type !== 'job_offer') {
+        return new WP_Error('not_found', 'Offre d\'emploi introuvable', array('status' => 404));
+    }
+
+    $acf_fields = get_fields($post_id);
+
+    $taxonomies = [
+        'job_category' => wp_get_post_terms($post_id, 'job_category', ['fields' => 'names']),
+        'job_location' => wp_get_post_terms($post_id, 'job_location', ['fields' => 'names']),
+        'job_contract_type' => wp_get_post_terms($post_id, 'job_contract_type', ['fields' => 'names']),
+        'job_skill' => wp_get_post_terms($post_id, 'job_skill', ['fields' => 'names']),
+    ];
+
+    return [
+        'id' => $post_id,
+        'title' => get_the_title($post_id),
+        'content' => apply_filters('the_content', $post->post_content),
+        'acf' => $acf_fields,
+        'taxonomies' => $taxonomies,
+    ];
+}
+
 
 // Endpoint pour soumettre une candidature
 add_action('rest_api_init', function() {

@@ -19,3 +19,6 @@ require_once plugin_dir_path(__FILE__) . 'includes/acf-fields.php';
 // Charger les endpoints API
 require_once plugin_dir_path(__FILE__) . 'includes/rest-api.php';
 
+// Seed
+require_once plugin_dir_path(__FILE__)  . 'includes/seed-data.php';
+
