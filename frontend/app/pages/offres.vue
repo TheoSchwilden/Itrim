@@ -1,3 +1,3 @@
 <template>
-  <HomeHero />
+  <h1>Offres</h1>
 </template>

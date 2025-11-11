@@ -7,14 +7,12 @@ const items = computed<NavigationMenuItem[]>(() => [
   {
     label: 'Accueil',
     to: '/',
-    icon: 'i-lucide-home',
-    active: route.path.startsWith('/')
+    icon: 'i-lucide-home'
   },
   {
     label: "Offres d'emploi",
     to: '/offres',
-    icon: 'i-lucide-briefcase-business',
-    active: route.path.startsWith('/offres')
+    icon: 'i-lucide-briefcase-business'
   },
   {
     label: 'À propos',

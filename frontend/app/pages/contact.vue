@@ -1,3 +1,3 @@
 <template>
-  <HomeHero />
+  <h1>Contact</h1>
 </template>

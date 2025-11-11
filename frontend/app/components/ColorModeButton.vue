@@ -1,4 +1,3 @@
-<!-- components/ColorModeButton.vue -->
 <script setup lang="ts">
 const colorMode = useColorMode();
 const nextTheme = computed(() => (colorMode.value === 'dark' ? 'light' : 'dark'));
@@ -38,20 +37,14 @@ const startViewTransition = (event: MouseEvent) => {
 </script>
 
 <template>
-  <ClientOnly>
-    <UButton
-      :aria-label="`Switch to ${nextTheme} mode`"
-      :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
-      color="neutral"
-      variant="ghost"
-      size="md"
-      class="rounded-full"
-      @click="startViewTransition"
-    />
-    <template #fallback>
-      <div class="size-8" />
-    </template>
-  </ClientOnly>
+  <UButton
+    :aria-label="`Switch to ${nextTheme} mode`"
+    :icon="`i-lucide-${nextTheme === 'dark' ? 'sun' : 'moon'}`"
+    color="neutral"
+    variant="ghost"
+    class="rounded-full"
+    @click="startViewTransition"
+  />
 </template>
 
 <style>

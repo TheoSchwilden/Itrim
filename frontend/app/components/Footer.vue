@@ -10,9 +10,8 @@ const items: NavigationMenuItem[] = [
     active: route.path.startsWith('/')
   },
   {
-    label: "Offres d'emploi",
-    to: '/offres',
-    active: route.path.startsWith('/offres')
+    label: 'À propos',
+    to: '/a-propos'
   },
   {
     label: 'Contact',
