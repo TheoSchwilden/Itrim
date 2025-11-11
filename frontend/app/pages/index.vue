@@ -1,3 +1,4 @@
 <template>
   <HomeHero />
+  <HomeSkillsSection />
 </template>
