@@ -43,7 +43,7 @@ const props = defineProps<{
     :image="job.acf.company.logo_entreprise.url"
     :date="job.date"
     :ui="{
-      image: 'object-contain object-center p-5 bg-white'
+      image: 'object-contain object-center p-5 bg-accented dark:bg-white'
     }"
   >
     <template #date>
