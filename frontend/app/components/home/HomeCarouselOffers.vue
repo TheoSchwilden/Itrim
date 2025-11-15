@@ -135,4 +135,15 @@ const scrollNext = () => emblaApi.value?.scrollNext();
 .embla__next {
   right: -55px;
 }
+
+@media (max-width: 1024px) {
+  .embla__next {
+    right: -5px;
+    background: #0f172b;
+  }
+  .embla__prev {
+    left: -5px;
+    background: #0f172b;
+  }
+}
 </style>

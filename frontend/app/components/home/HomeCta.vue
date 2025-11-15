@@ -2,7 +2,8 @@
 const links = ref([
   {
     label: 'Voir les offres maintenant',
-    color: 'neutral'
+    color: 'neutral',
+    to: '/offres'
   }
 ]);
 </script>
