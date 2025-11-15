@@ -11,12 +11,20 @@ add_action('rest_api_init', function() {
             ));
 
             $data = array_map(function($job) {
+                 $taxonomies = [
+                    'job_category' => wp_get_post_terms($job->ID, 'job_category', ['fields' => 'names']),
+                    'job_location' => wp_get_post_terms($job->ID, 'job_location', ['fields' => 'names']),
+                    'job_contract_type' => wp_get_post_terms($job->ID, 'job_contract_type', ['fields' => 'names']),
+                    'job_skill' => wp_get_post_terms($job->ID, 'job_skill', ['fields' => 'names']),
+                ];
+
                 return [
                     'id' => $job->ID,
                     'title' => get_the_title($job->ID),
                     'content' => get_the_content(null, false, $job),
-                    'date' => get_the_date('', $job),
+                    'date' => get_the_date('j F Y', $job),
                     'acf' => function_exists('get_fields') ? get_fields($job->ID) : [],
+                    'taxonomies' => $taxonomies
                 ];
             }, $jobs);
 
@@ -60,6 +68,44 @@ function itrim_get_job_offer_by_id($data) {
         'taxonomies' => $taxonomies,
     ];
 }
+
+// Endpoint pour récupérer les 6 dernières offres d'emploi
+add_action('rest_api_init', function() {
+    register_rest_route('itrim/v1', '/job-offers/latest', array(
+        'methods' => 'GET',
+        'callback' => function() {
+
+            $jobs = get_posts(array(
+                'post_type' => 'job_offer',
+                'numberposts' => 6,
+                'orderby' => 'date',
+                'order' => 'DESC'
+            ));
+
+            $data = array_map(function($job) {
+
+                $taxonomies = [
+                    'job_category' => wp_get_post_terms($job->ID, 'job_category', ['fields' => 'names']),
+                    'job_location' => wp_get_post_terms($job->ID, 'job_location', ['fields' => 'names']),
+                    'job_contract_type' => wp_get_post_terms($job->ID, 'job_contract_type', ['fields' => 'names']),
+                    'job_skill' => wp_get_post_terms($job->ID, 'job_skill', ['fields' => 'names']),
+                ];
+
+                return [
+                    'id' => $job->ID,
+                    'title' => get_the_title($job->ID),
+                    'content' => get_the_content(null, false, $job),
+                    'date' => get_the_date('j F Y', $job),
+                    'acf' => function_exists('get_fields') ? get_fields($job->ID) : [],
+                    'taxonomies' => $taxonomies
+                ];
+            }, $jobs);
+
+            return $data;
+        },
+        'permission_callback' => '__return_true'
+    ));
+});
 
 
 // Endpoint pour soumettre une candidature

@@ -38,6 +38,15 @@ acf_add_local_field_group(array(
             ),
         ),
         array(
+            'key' => 'field_salary',
+            'label' => 'Salaire annuel brut (€)',
+            'name' => 'salary',
+            'type' => 'number',
+            'prepend' => '€',
+            'instructions' => 'Indiquez un montant annuel brut (ex : 35000)',
+            'required' => 0,
+        ),
+                array(
             'key' => 'field_company_group',
             'label' => 'Informations entreprise',
             'name' => 'company',
