@@ -6,8 +6,6 @@ const { data: jobs, pending } = await useFetch('http://localhost:8000/wp-json/it
   getCachedData: (key) => useNuxtData(key).data.value
 });
 
-console.log(jobs.value);
-
 const [emblaRef, emblaApi] = emblaCarouselVue({
   loop: false,
   align: 'start'

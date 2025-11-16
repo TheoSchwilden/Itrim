@@ -53,6 +53,8 @@ const items = computed<NavigationMenuItem[]>(() => [
     <UNavigationMenu :items="items" />
 
     <template #right>
+      <UContentSearchButton />
+
       <ColorModeButton />
 
       <UTooltip text="Open on GitHub" :kbds="['meta', 'G']">
