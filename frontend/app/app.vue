@@ -27,12 +27,35 @@ const pages = [
     icon: 'i-lucide-phone'
   }
 ];
+
+const { data: jobs, pending } = await useFetch('http://localhost:8000/wp-json/itrim/v1/job-offers/', {
+  key: 'jobs-cache',
+  getCachedData: (key) => useNuxtData(key).data.value
+});
+
+const groups = computed(() => {
+  if (!jobs.value) return [];
+
+  return [
+    {
+      id: 'jobs',
+      label: "Offres d'emploi",
+      items: jobs.value.map((job) => ({
+        label: job.title,
+        suffix: job.taxonomies?.job_contract_type?.[0] ?? '',
+        to: `/offres/${job.id}`
+      }))
+    }
+  ];
+});
+
+const value = ref({});
 </script>
 
 <template>
   <UApp :locale="fr">
     <NuxtLoadingIndicator />
     <NuxtLayout />
-    <UContentSearch :loading="pending" :links="pages" />
+    <UContentSearch v-model="value" :loading="pending" :links="pages" :groups="groups" />
   </UApp>
 </template>

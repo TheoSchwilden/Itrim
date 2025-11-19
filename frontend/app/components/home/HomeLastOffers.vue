@@ -11,5 +11,7 @@
     }"
   >
   </UPageSection>
-  <HomeCarouselOffers />
+  <ClientOnly>
+    <HomeCarouselOffers />
+  </ClientOnly>
 </template>
