@@ -42,6 +42,7 @@ const props = defineProps<{
   <UBlogPost
     :image="job.acf.company.logo_entreprise.url"
     :date="job.date"
+    :to="`/offres/${job.id}`"
     :ui="{
       image: 'object-contain object-center p-5 bg-accented dark:bg-white'
     }"
