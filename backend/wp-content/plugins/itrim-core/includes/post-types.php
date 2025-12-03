@@ -106,7 +106,7 @@ add_action('init', function() {
         'show_in_rest' => true,         
         'has_archive' => false,
         'menu_icon' => 'dashicons-email',
-        'supports' => array('title', 'editor', 'custom-fields')
+        'supports' => array('title', 'custom-fields')
     );
 
     register_post_type('job_application', $args);
