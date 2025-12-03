@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const title = "Offre d'emploi";
+const description = "Découvrez l'offre d'emploi";
+useHead({
+  title,
+  meta: [{ name: 'description', content: description }]
+});
 interface JobOffer {
   id: number;
   title: string;

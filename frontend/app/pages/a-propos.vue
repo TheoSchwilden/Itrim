@@ -1,4 +1,11 @@
 <script setup lang="ts">
+const title = "À propos d'iTrim";
+
+useHead({
+  title,
+  meta: [{ name: 'description', content: "iTrim - Recherchez votre prochaine mission IT dès aujourd'hui" }]
+});
+
 const technologies = [
   {
     name: 'WordPress',

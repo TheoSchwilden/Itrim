@@ -1,4 +1,9 @@
 <script setup lang="ts">
+const title = "Offres d'emploi";
+useHead({
+  title,
+  meta: [{ name: 'description', content: "iTrim - Recherchez votre prochaine mission IT dès aujourd'hui" }]
+});
 interface JobOffer {
   id: number;
   title: string;
