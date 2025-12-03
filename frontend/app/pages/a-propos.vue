@@ -537,8 +537,19 @@ const interests = [
               </p>
             </div>
             <div class="flex flex-wrap gap-4 justify-center">
-              <UButton size="xl" color="primary" variant="solid" icon="i-lucide-mail"> Me contacter </UButton>
-              <UButton size="xl" color="gray" variant="outline" icon="i-lucide-github"> Voir mes projets </UButton>
+              <UButton size="xl" color="primary" variant="solid" icon="i-lucide-mail" to="/contact">
+                Me contacter
+              </UButton>
+              <UButton
+                size="xl"
+                color="gray"
+                variant="outline"
+                icon="i-lucide-github"
+                to="https://github.com/TheoSchwilden"
+                target="_blank"
+              >
+                Voir mes projets
+              </UButton>
             </div>
           </div>
         </UCard>
