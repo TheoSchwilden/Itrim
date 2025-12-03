@@ -1,4 +1,9 @@
 <script setup lang="ts">
+interface Orientation {
+  vertical: 'vertical';
+  horizontal: 'horizontal';
+}
+
 // Définition du type pour une offre d'emploi
 interface JobOffer {
   id: number;
@@ -35,16 +40,19 @@ interface JobOffer {
 // Déclaration du prop
 const props = defineProps<{
   job: JobOffer;
+  orientation: Orientation;
 }>();
 </script>
 
 <template>
   <UBlogPost
+    :orientation="orientation"
     :image="job.acf.company.logo_entreprise.url"
     :date="job.date"
     :to="`/offres/${job.id}`"
     :ui="{
-      image: 'object-contain object-center p-5 bg-accented dark:bg-white'
+      header: 'h-full',
+      image: 'h-full object-contain object-center p-5 bg-accented dark:bg-white'
     }"
   >
     <template #date>
@@ -54,7 +62,7 @@ const props = defineProps<{
       <h3>{{ job.title }}</h3>
     </template>
     <template #description>
-      <div class="flex flex-col gap-1.5 mt-2">
+      <div class="flex flex-col gap-1.5 mt-2 pr-4">
         <div class="flex items-center gap-1 mt-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,10 +104,20 @@ const props = defineProps<{
           </svg>
           {{ new Intl.NumberFormat('fr-FR').format(job.acf.salary) }} € par an
         </span>
+        <div v-if="orientation === 'horizontal'">
+          <div class="flex items-center justify-between mt-2">
+            <div class="flex items-center gap-1">
+              <UAvatar :alt="job.acf.company.name.charAt(0)" />
+              <h4>{{ job.acf.company.name }}</h4>
+            </div>
+            <div>Publié le {{ job.date }}</div>
+          </div>
+        </div>
+        <div v-else></div>
       </div>
     </template>
     <template #footer>
-      <div class="flex items-center justify-between p-4 sm:p-5">
+      <div v-if="orientation === 'vertical'" class="flex items-center justify-between p-4 sm:p-5">
         <div class="flex items-center gap-1">
           <UAvatar :alt="job.acf.company.name.charAt(0)" />
           <h4>{{ job.acf.company.name }}</h4>
