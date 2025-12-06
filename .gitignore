@@ -5,7 +5,7 @@ frontend/.output/
 
 # Composer / PHP
 vendor/
-wp-content/uploads/
+backend/wp-content/uploads/
 
 
 
