@@ -12,6 +12,9 @@ backend/wp-content/uploads/
 # Docker
 *.log
 docker-compose.override.yml
+docker-compose.dev.yml
+docker-compose.prod.yml
+docker-compose.yml
 
 # Env
 .env
