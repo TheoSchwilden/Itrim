@@ -36,8 +36,9 @@ interface JobOffer {
 
 const route = useRoute();
 const id = route.params.id;
+const config = useRuntimeConfig();
 
-const { data: job, pending } = await useFetch<JobOffer>(`http://localhost:8000/wp-json/itrim/v1/job-offer/${id}`, {
+const { data: job, pending } = await useFetch<JobOffer>(`${config.public.apiUrl}/itrim/v1/job-offer/${id}`, {
   key: `job-${id}`,
   getCachedData: (key) => useNuxtData(key).data.value
 });

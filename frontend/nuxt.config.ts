@@ -17,6 +17,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NUXT_PUBLIC_API_URL || 'https://api.itrim.tschwilden.dev/wp-json'
+    }
+  },
+
   modules: ['@nuxt/ui', '@nuxt/content'],
 
   css: ['~/assets/css/main.css'],

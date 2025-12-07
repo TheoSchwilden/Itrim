@@ -4,6 +4,9 @@ useHead({
   title,
   meta: [{ name: 'description', content: "iTrim - Recherchez votre prochaine mission IT dès aujourd'hui" }]
 });
+
+const config = useRuntimeConfig();
+
 interface JobOffer {
   id: number;
   title: string;
@@ -18,7 +21,7 @@ interface JobOffer {
   };
 }
 
-const { data: jobs, pending } = await useFetch<JobOffer[]>('http://localhost:8000/wp-json/itrim/v1/job-offers', {
+const { data: jobs, pending } = await useFetch<JobOffer[]>(`${config.public.apiUrl}/itrim/v1/job-offers`, {
   key: 'jobs-cache',
   getCachedData: (key) => useNuxtData(key).data.value
 });

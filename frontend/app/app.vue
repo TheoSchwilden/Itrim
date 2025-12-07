@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { fr } from '@nuxt/ui/locale';
 
+const config = useRuntimeConfig();
+
 const pages = [
   {
     id: 'home',
@@ -28,7 +30,7 @@ const pages = [
   }
 ];
 
-const { data: jobs, pending } = await useFetch('http://localhost:8000/wp-json/itrim/v1/job-offers/', {
+const { data: jobs, pending } = await useFetch(`${config.public.apiUrl}/itrim/v1/job-offers/`, {
   key: 'jobs-cache',
   getCachedData: (key) => useNuxtData(key).data.value
 });

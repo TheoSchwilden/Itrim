@@ -11,6 +11,7 @@ export interface SearchItem {
 
 export default async function (query: string): Promise<SearchItem[]> {
   const normalizedQuery = query.toLowerCase();
+  const config = useRuntimeConfig();
 
   // 🔹 1. Ta navigation (sources locales)
   const pages: SearchItem[] = [
@@ -44,10 +45,10 @@ export default async function (query: string): Promise<SearchItem[]> {
     }
   ];
 
-  // 🔹 2. Fetch Offres d’emploi depuis WordPress
+  // 🔹 2. Fetch Offres d'emploi depuis WordPress
   let jobs: SearchItem[] = [];
   try {
-    const jobRes = await fetch('http://localhost:8000/wp-json/itrim/v1/job-offers');
+    const jobRes = await fetch(`${config.public.apiUrl}/itrim/v1/job-offers`);
     const jobData = await jobRes.json();
 
     jobs = jobData.map((job: any) => ({

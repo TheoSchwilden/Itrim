@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import emblaCarouselVue from 'embla-carousel-vue';
 
-const { data: jobs, pending } = await useFetch('http://localhost:8000/wp-json/itrim/v1/job-offers/latest', {
+const config = useRuntimeConfig();
+
+const { data: jobs, pending } = await useFetch(`${config.public.apiUrl}/itrim/v1/job-offers/latest`, {
   key: 'jobs-cache',
   getCachedData: (key) => useNuxtData(key).data.value
 });

@@ -64,7 +64,7 @@ onMounted(() => {
     </template>
 
     <img
-      src="http://localhost:8000/wp-content/uploads/2025/11/image-1.png"
+      src="https://api.itrim.tschwilden.dev/wp-content/uploads/2025/11/image-1.png"
       alt="Illustration"
       class="w-full rounded max-h-[700px]"
     />

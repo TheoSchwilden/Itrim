@@ -8,6 +8,7 @@ const emit = defineEmits<{
 }>();
 
 const toast = useToast();
+const config = useRuntimeConfig();
 const isSubmitting = ref(false);
 
 const form = reactive({
@@ -112,7 +113,7 @@ const submitForm = async () => {
     }
 
     // Appel à l'API WordPress
-    const response = await fetch('http://localhost:8000/wp-json/itrim/v1/apply', {
+    const response = await fetch(`${config.public.apiUrl}/itrim/v1/apply`, {
       method: 'POST',
       body: formData
     });
