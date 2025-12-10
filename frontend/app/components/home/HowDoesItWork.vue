@@ -55,7 +55,7 @@ onMounted(() => {
     reverse
     :links="links"
     :ui="{
-      container: 'lg:px-0',
+      container: 'lg:px-0 lg:py-60',
       links: 'lg:mt-12'
     }"
   >

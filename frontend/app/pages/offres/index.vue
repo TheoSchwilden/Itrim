@@ -161,7 +161,7 @@ const toggleView = () => {
     title="Offres d'emploi"
     description="Trouvez votre prochaine mission IT dès aujourd'hui"
     :ui="{
-      container: 'lg:pt-20 lg:pb-0'
+      container: 'pb-5 lg:pt-20 lg:pb-0'
     }"
   />
 
@@ -319,7 +319,7 @@ const toggleView = () => {
 
     <div class="flex gap-8">
       <aside class="hidden lg:block w-80 shrink-0">
-        <div class="sticky top-6 space-y-6">
+        <div class="space-y-6">
           <div class="flex items-center justify-between">
             <h2 class="text-lg font-bold text-gray-900 dark:text-white">Filtres</h2>
             <UButton

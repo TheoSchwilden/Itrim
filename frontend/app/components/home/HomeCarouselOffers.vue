@@ -141,9 +141,18 @@ const scrollNext = () => emblaApi.value?.scrollNext();
     right: -5px;
     background: #0f172b;
   }
+
+  html.light .embla__next {
+    background: #f1f5f9;
+  }
+
   .embla__prev {
     left: -5px;
     background: #0f172b;
+  }
+
+  html.light .embla__prev {
+    background: #f1f5f9;
   }
 }
 </style>

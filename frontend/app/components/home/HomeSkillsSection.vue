@@ -28,7 +28,7 @@ const cards = ref([
     title="Nos domaines d’expertise"
     description="Des profils spécialisés pour chaque besoin de votre entreprise."
     :ui="{
-      container: 'gap-8 lg:gap-8',
+      container: 'pt-9 gap-8 lg:gap-8',
       title: 'text-left',
       description: 'text-left mt-3'
     }"

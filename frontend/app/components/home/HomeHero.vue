@@ -27,6 +27,9 @@ const links = ref([
       title="Trouvez votre prochaine mission IT dès aujourd'hui"
       description="Développeurs, chefs de projet, ingénieurs systèmes… ITrim vous connecte aux meilleures opportunités du numérique."
       :links="links"
+      :ui="{
+        container: 'pt-12'
+      }"
     />
   </div>
 </template>

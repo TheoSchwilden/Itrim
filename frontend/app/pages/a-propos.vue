@@ -171,7 +171,7 @@ const interests = [
       title="À propos d'iTrim"
       description="Un projet portfolio démontrant la puissance du WordPress Headless moderne"
       :ui="{
-        container: 'lg:pt-24 lg:pb-16'
+        container: 'pb-5 lg:pt-24 lg:pb-16'
       }"
     />
 

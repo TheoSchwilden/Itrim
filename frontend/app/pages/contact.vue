@@ -105,7 +105,7 @@ const resetForm = () => {
 
 <template>
   <div>
-    <section class="relative py-16 lg:pt-20 lg:pb-0">
+    <section class="relative pb-5 py-16 lg:pt-20 lg:pb-0">
       <UContainer>
         <div class="text-center max-w-3xl mx-auto">
           <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">Me contacter</h1>
