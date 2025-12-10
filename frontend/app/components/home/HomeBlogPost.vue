@@ -42,6 +42,32 @@ const props = defineProps<{
   job: JobOffer;
   orientation: Orientation;
 }>();
+
+const formattedDate = computed(() => {
+  if (!props.job.date) return '';
+
+  const months = {
+    janvier: '01',
+    février: '02',
+    mars: '03',
+    avril: '04',
+    mai: '05',
+    juin: '06',
+    juillet: '07',
+    août: '08',
+    septembre: '09',
+    octobre: '10',
+    novembre: '11',
+    décembre: '12'
+  };
+
+  const parts = props.job.date.split(' ');
+  const day = parts[0].padStart(2, '0');
+  const month = months[parts[1].toLowerCase()];
+  const year = parts[2];
+
+  return `${day}/${month}/${year}`;
+});
 </script>
 
 <template>
@@ -110,7 +136,7 @@ const props = defineProps<{
               <UAvatar :alt="job.acf.company.name.charAt(0)" />
               <h4>{{ job.acf.company.name }}</h4>
             </div>
-            <div>Publié le {{ job.date }}</div>
+            <div class="hidden xl:block">Publié le {{ formattedDate }}</div>
           </div>
         </div>
         <div v-else></div>
@@ -122,7 +148,7 @@ const props = defineProps<{
           <UAvatar :alt="job.acf.company.name.charAt(0)" />
           <h4>{{ job.acf.company.name }}</h4>
         </div>
-        <div>Publié le {{ job.date }}</div>
+        <div class="hidden xl:block">Publié le {{ formattedDate }}</div>
       </div>
     </template>
   </UBlogPost>

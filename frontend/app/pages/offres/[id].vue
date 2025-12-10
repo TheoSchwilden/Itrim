@@ -74,7 +74,7 @@ const formatDate = (date: string) => {
       <div class="flex items-start gap-6">
         <div
           v-if="job.acf.company.logo_entreprise"
-          class="shrink-0 w-24 h-24 rounded-xl border border-gray-200 dark:border-gray-800 flex items-center justify-center bg-white dark:bg-gray-900 p-4"
+          class="w-24 h-24 rounded-xl border border-gray-200 dark:border-gray-800 flex items-center justify-center bg-white p-4"
         >
           <img
             :src="job.acf.company.logo_entreprise.url"
@@ -91,7 +91,7 @@ const formatDate = (date: string) => {
             variant="soft"
             size="md"
           />
-          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 mt-2">
+          <h1 class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 mt-2">
             {{ job.title }}
           </h1>
           <p class="text-lg text-gray-600 dark:text-gray-400">{{ job.acf.company.name }}</p>

@@ -205,7 +205,11 @@ const interests = [
             </div>
           </div>
 
-          <UCard>
+          <UCard
+            :ui="{
+              body: 'p-0'
+            }"
+          >
             <div class="space-y-6 p-6">
               <div class="space-y-2">
                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Objectifs du projet</h3>
@@ -304,7 +308,11 @@ const interests = [
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Comment ça fonctionne ?</h2>
         </div>
 
-        <UCard>
+        <UCard
+          :ui="{
+            body: 'p-0'
+          }"
+        >
           <div class="space-y-8 p-6">
             <div class="grid lg:grid-cols-3 gap-8">
               <!-- Backend -->
@@ -404,7 +412,7 @@ const interests = [
                 <div v-if="index < timeline.length - 1" class="w-0.5 h-full bg-gray-200 dark:bg-gray-800 mt-2" />
               </div>
               <div class="pb-8 flex-1">
-                <div class="flex items-start justify-between gap-4 mb-2">
+                <div class="flex items-start flex-col sm:flex-row justify-between gap-4 mb-2">
                   <div>
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ item.title }}</h3>
                     <p class="text-sm text-primary-600 dark:text-primary-400 font-medium">{{ item.organization }}</p>
@@ -484,7 +492,7 @@ const interests = [
                   <h3 class="text-xl font-bold text-gray-900 dark:text-white">Centres d'intérêts</h3>
                 </div>
               </template>
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div
                   v-for="interest in interests"
                   :key="interest.name"
